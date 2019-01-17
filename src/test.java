@@ -10,13 +10,12 @@ public class test {
 	public static void main(String[] args) throws IOException {
 		Document doc = Jsoup.connect("https://www.esunbank.com.tw/bank/personal/deposit/rate/forex/foreign-exchange-rates").get();
 		String title = doc.title();
-		System.out.println(title);
+		//System.out.println(title);
 		
 		String time = doc.select("span[id=LbQuoteTime]").text();
 		String[] a = doc.select("a[href*=/personal/deposit/rate/forex/exchange-rate-chart?]").text().split(" ");
 		String[] buy=doc.select("td[data-name=即期買入匯率]").text().split(" ");
 		String[] sell=doc.select("td[data-name=即期賣出匯率]").text().split(" ");
-		System.out.println(time);
 		
 		//美元匯率
 		Map<String,String> USD = new HashMap<String,String>();
